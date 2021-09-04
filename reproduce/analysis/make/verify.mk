@@ -140,7 +140,6 @@ $(mtexdir)/verify.tex: $(foreach s, $(verify-dep), $(mtexdir)/$(s).tex)
 	  for m in $(verify-check); do
 	    file=$(mtexdir)/$$m.tex
 	    if   [ $$m == download  ]; then s=49e4e9f049aa9da0453a67203d798587
-	    elif [ $$m == delete-me ]; then s=711e2f7fa1f16ecbeeb3df6bcb4ec705
 	    else echo; echo "'$$m' not recognized."; exit 1
 	    fi
 	    $(call verify-txt-no-comments-no-space, $$file, $$s, $@.tmp)

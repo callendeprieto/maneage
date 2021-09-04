@@ -51,12 +51,12 @@
 %% LaTeX style file, you will probably set the authors in a different way,
 %% feel free to change them here, this is just basic style and varies from
 %% project to project.
-\author[1]{Your name}
-\author[2]{Coauthor one}
-\author[1,3]{Coauthor two}
-\affil[1]{The first affiliation in the list.; \url{your@email.address}}
-\affil[2]{Another affilation can be put here.}
-\affil[3]{And generally as many affiliations as you like.
+\author[1]{Carlos Allende Prieto}
+%\author[2]{Coauthor one}
+%\author[1,3]{Coauthor two}
+\affil[1]{Instituto de Astrof\'{\i}sica de Canarias; \url{callende@iac.es}
+%\affil[2]{Another affilation can be put here.}
+%\affil[3]{And generally as many affiliations as you like.
 \par \emph{Received YYYY MM DD; accepted YYYY MM DD; published YYYY MM DD}}
 \date{}
 
@@ -74,17 +74,11 @@
 
 %% Project abstract and keywords.
 \includeabstract{
-  Welcome to Maneage (\emph{Man}aging data lin\emph{eage}) and reproducible papers/projects, for a review of the basics of this system, please see \citet{maneage}.
-  You are now ready to configure Maneage and implement your own research in this framework.
-  Maneage contains almost all the elements that you will need in a research project, and adding any missing parts is very easy once you become familiar with it.
-  For example it already has steps to downloading of raw data and necessary software (while verifying them with their checksums), building the software, and processing the data with the software in a highly-controlled environment.
-  But Maneage is not just for the analysis of your project, you will also write your paper in it (by replacing this text in \texttt{paper.tex}): including this abstract, figures and bibliography.
-  If you design your project with Maneage's infra-structure, don't forget to add a notice and clearly let the readers know that your work is reproducible, we should spread the word and show the world how useful reproducible research is for the sciences, also don't forget to cite and acknowledge it so we can continue developing it.
-  This PDF was made with Maneage, commit \projectversion{}.
+This is a test of the Maneage system described by \citet{maneage}. This PDF was made with Maneage, commit \projectversion{}.
 
   \vspace{0.25cm}
 
-  \textsl{Keywords}: Add some keywords for your research here.
+  \textsl{Keywords}: testing, testing, yes.
 
   \textsl{Reproducible paper}: All quantitave results (numbers and plots)
   in this paper are exactly reproducible with Maneage
@@ -99,53 +93,13 @@
 
 %% Start of main body.
 \section{Congratulations!}
-Congratulations on running the raw template project! You can now follow the ``Customization checklist'' in the \texttt{README-hacking.md} file, customize this template and start your exciting research project over it.
-You can always merge Maneage back into your project to improve its infra-structure and leaving your own project intact.
-If you haven't already read \citet{maneage}, please do so before continuing, it isn't long (just 7 pages).
 
-While you are writing your paper, just don't forget to \emph{not} use numbers or fixed strings (for example database urls like \url{\wfpctwourl}) directly within your \LaTeX{} source.
+Welcome! Don't forget to \emph{not} use numbers or fixed strings (for example database urls like \url{\wfpctwourl}) directly within your \LaTeX{} source.
 Put them in configuration files and after using them in the analysis, pass them into the \LaTeX{} source through macros in the same subMakefile that used them.
 For some already published examples, please see \citet{maneage}\footnote{\url{https://gitlab.com/makhlaghi/maneage-paper}}, \citet{infantesainz20}\footnote{\url{https://gitlab.com/infantesainz/sdss-extended-psfs-paper}} and \citet{akhlaghi19}\footnote{\url{https://gitlab.com/makhlaghi/iau-symposium-355}}.
 Working in this way, will let you focus clearly on your science and not have to worry about fixing this or that number/name in the text.
 
-Once your project is ready for publication, there is also a ``Publication checklist'' in \texttt{README-hacking.md} that will guide you in the steps to do for making your project as FAIR as possible (Findable, Accessibile, Interoperable, and Reusable).
 
-The default \LaTeX{} structure within Maneage also has two \LaTeX{} macros for easy marking of text within your document as \emph{new} and \emph{notes}.
-To activate them, please use the \texttt{--highlight-new} or \texttt{--highlight-notes} options with \texttt{./project make}.
-
-For example if you run \texttt{./project make --highlight-new}, then \new{this text (that has been marked as \texttt{new}) will show up as green in the final PDF}.
-If you run \texttt{./project make --highlight-notes} then you will see a note following this sentence that is written in red and has square brackets around it (it is invisible without this option).
-\tonote{This text is written within a \texttt{tonote} and is invisible without \texttt{--highlight-notes}.}
-You can also use these two options together to both highlight the new parts and add notes within the text.
-
-Another thing you may notice from the \LaTeX{} source of this default paper is there is one line per sentence (and one sentence in a line).
-Of course, as with everything else in Maneage, you are free to use any format that you are most comfortable with.
-The reason behind this choice is that this source is under Git version control and that Git also primarily works on lines.
-In this way, when a change in a setence is made, git will only highlight/color that line/sentence we have found that this helps a lot in viewing the changes.
-Also, this format helps in reminding the author when the sentence is getting too long!
-Here is a tip when looking at the changes of narrative document in Git: use the \texttt{--word-diff} option (for example \texttt{git diff --word-diff}, you can also use it with \texttt{git log}).
-
-Figure \ref{squared} shows a simple plot as a demonstration of creating plots within \LaTeX{} (using the {\small PGFP}lots package).
-The minimum value in this distribution is $\deletememin$, and $\deletememax$ is the maximum.
-Take a look into the \LaTeX{} source and you'll see these numbers are actually macros that were calculated from the same dataset (they will change if the dataset, or function that produced it, changes).
-
-The individual {\small PDF} file of Figure \ref{squared} is available under the \texttt{tex/tikz/} directory of your build directory.
-You can use this PDF file in other contexts (for example in slides showing your progress or after publishing the work).
-If you want to directly use the {\small PDF} file in the figure without having to let {\small T}i{\small KZ} decide if it should be remade or not, you can also comment the \texttt{makepdf} macro at the top of this \LaTeX{} source file.
-
-\begin{figure}[t]
-  \includetikz{delete-me-squared}{width=\linewidth}
-
-  \captionof{figure}{\label{squared} A very basic $X^2$ plot for
-    demonstration.}
-\end{figure}
-
-Figure \ref{image-histogram} is another demonstration of showing images (datasets) using PGFPlots.
-It shows a small crop of an image from the Wide-Field Planetary Camera 2 (that was installed on the Hubble Space Telescope from 1993 to 2009).
-As another more realistic demonstration of reporting results with Maneage, here we report that the mean pixel value in that image is $\deletemewfpctwomean$ and the median is $\deletemewfpctwomedian$.
-The skewness in the histogram of Figure \ref{image-histogram}(b) explains this difference between the mean and median.
-The dataset is visualized here as a black and white image using the \textsf{Convert\-Type} program of GNU Astronomy Utilities (Gnuastro).
-The histogram and basic statstics were generated with Gnuastro's \textsf{Statistics} program.
 
 {\small PGFP}lots\footnote{\url{https://ctan.org/pkg/pgfplots}} is a great tool to build the plots within \LaTeX{} and removes the necessity to add further dependencies, just to create the plots.
 There are high-level libraries like Matplotlib which also generate plots.
@@ -155,15 +109,6 @@ Installing these dependencies from source, is not easy and will harm the reprodu
 Furthermore, since {\small PGFP}lots builds the plots within \LaTeX{}, it respects all the properties of your text (for example line width and fonts and etc).
 Therefore the final plot blends in your paper much more nicely.
 It also has a wonderful manual\footnote{\url{http://mirrors.ctan.org/graphics/pgf/contrib/pgfplots/doc/pgfplots.pdf}}.
-
-\begin{figure}[t]
-  \includetikz{delete-me-image-histogram}{width=\linewidth}
-
-  \captionof{figure}{\label{image-histogram} (a) An example image of the Wide-Field Planetary Camera 2, on board the Hubble Space Telescope from 1993 to 2009.
-    This is one of the sample images from the FITS standard webpage, kept as examples for this file format.
-    (b) Histogram of pixel values in (a).}
-\end{figure}
-
 
 
 \section{Notice and citations}
